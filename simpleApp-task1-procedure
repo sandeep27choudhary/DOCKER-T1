@@ -1,0 +1,33 @@
+Node.js app
+	local machine checks:
+		npm install
+		npm start
+		App at - localhost:8080
+	
+	-----------------------------------------------------------------------------
+	Docker Deployment procedure
+	
+		Docker login -usrname & pwd
+		Dockerfile creation:
+		 ------------------------------------------------------------------------
+		  	FROM --setting the base image                                   
+		 	WORKDIR --setting the work directory
+		 	RUN -- executing node package installation
+		 	COPY -- copying the files to the container
+		 	EXPOSE --informing docker about network ports the app is on
+		 	CMD --providing the command to execute the app
+		 ------------------------------------------------------------------------
+		 Create image:
+		 	docker build -t app1 .
+		 Create and run container
+		 	docker run -d -p 8080:8080 --name simpleApp app1
+		 App hosted on : 
+		 		localhost:8080
+		 -------------------------------------------------------------------------
+		 
+		 Deleting the container & image	
+		 	docker stop simpleApp
+		 	docker rm simpleApp
+		 	docker rmi app1
+		 -------------------------------------------------------------------------
+		 
